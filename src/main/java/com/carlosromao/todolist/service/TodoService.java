@@ -25,6 +25,10 @@ public class TodoService {
 		Sort sort = Sort.by("prioridade").descending().and(Sort.by("nome").ascending());
 		return todoRepository.findAll(sort);
 	}
+	
+	public Todo getById(Long id) {
+		return todoRepository.findById(id).orElse(null);
+	}
 
 	public List<Todo> update(Todo todo) {
 		todoRepository.save(todo);
