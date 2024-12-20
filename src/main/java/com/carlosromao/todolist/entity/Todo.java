@@ -10,18 +10,15 @@ import jakarta.validation.constraints.NotBlank;
 @Entity
 @Table(name = "todos")
 public class Todo {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	@NotBlank
+	 @NotBlank(message = "Nome não pode estar em branco")
 	private String nome;
-	@NotBlank
+	 @NotBlank(message = "Descrição não pode estar em branco")
 	private String descricao;
 	private boolean realizado;
 	private int prioridade;
-	
-	
 	
 	public Todo(String nome, String descricao, boolean realizado, int prioridade) {
 		this.nome = nome;
@@ -29,6 +26,8 @@ public class Todo {
 		this.realizado = realizado;
 		this.prioridade = prioridade;
 	}
+	
+	public Todo() { }
 	
 	public long getId() {
 		return id;
